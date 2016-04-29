@@ -41,6 +41,10 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func zoomImage(sender: AnyObject) {
+        performSegueWithIdentifier("ZoomImage", sender: sender)
+    }
 
     @IBAction func phoneCall(sender: AnyObject) {
 
@@ -53,6 +57,13 @@ class DetailViewController: UIViewController {
 
         if let book = detailItem {
             UIApplication.sharedApplication().openURL(book.website)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if let controller = segue.destinationViewController as? ZoomViewController {
+            controller.image = detailItem?.picture
         }
     }
 

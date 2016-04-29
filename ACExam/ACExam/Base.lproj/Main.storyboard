@@ -39,12 +39,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bvD-Bk-Dyl">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bvD-Bk-Dyl">
                                 <rect key="frame" x="225" y="114" width="150" height="150"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="2u0-o3-pFQ"/>
                                     <constraint firstAttribute="width" constant="150" id="olj-OQ-myS"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="WHA-aA-9hv" appends="YES" id="NZh-Gs-27x"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfH-zO-AnR">
                                 <rect key="frame" x="20" y="284" width="560" height="30"/>
@@ -113,11 +117,94 @@
                         <outlet property="nameLabel" destination="aGv-Hu-1x3" id="g6D-iQ-yoV"/>
                         <outlet property="telButton" destination="sXr-Ua-khM" id="fyM-7t-PWP"/>
                         <outlet property="websiteButton" destination="n97-Yo-Fa8" id="n8T-SH-Bfp"/>
+                        <segue destination="QtH-be-JEg" kind="show" identifier="ZoomImage" id="bMn-h6-6Kw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="WHA-aA-9hv">
+                    <connections>
+                        <action selector="zoomImage:" destination="JEX-9P-axG" id="4pf-Ie-m1a"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
+        </scene>
+        <!--Zoom View Controller-->
+        <scene sceneID="8sA-y2-P6Z">
+            <objects>
+                <viewController id="QtH-be-JEg" customClass="ZoomViewController" customModule="ACExam" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Rl-9R-Z5t"/>
+                        <viewControllerLayoutGuide type="bottom" id="ss8-fL-XUE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oPy-Bw-tMg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="iNc-Tw-o0k">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8p-tv-4LO">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ciS-Hq-sBG">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ciS-Hq-sBG" secondAttribute="trailing" id="8hp-Eh-HZO"/>
+                                            <constraint firstItem="ciS-Hq-sBG" firstAttribute="leading" secondItem="T8p-tv-4LO" secondAttribute="leading" id="J93-AJ-GKW"/>
+                                            <constraint firstAttribute="bottom" secondItem="ciS-Hq-sBG" secondAttribute="bottom" id="ZYQ-GJ-Lj7"/>
+                                            <constraint firstItem="ciS-Hq-sBG" firstAttribute="top" secondItem="T8p-tv-4LO" secondAttribute="top" id="xN0-E0-TfY"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="T8p-tv-4LO" firstAttribute="leading" secondItem="iNc-Tw-o0k" secondAttribute="leading" id="4gc-aP-Ld7"/>
+                                    <constraint firstItem="T8p-tv-4LO" firstAttribute="centerX" secondItem="iNc-Tw-o0k" secondAttribute="centerX" id="LbQ-Rv-xg8"/>
+                                    <constraint firstAttribute="bottom" secondItem="T8p-tv-4LO" secondAttribute="bottom" id="Q4p-SQ-2AK"/>
+                                    <constraint firstItem="T8p-tv-4LO" firstAttribute="centerY" secondItem="iNc-Tw-o0k" secondAttribute="centerY" id="d0O-1E-SUg"/>
+                                    <constraint firstAttribute="trailing" secondItem="T8p-tv-4LO" secondAttribute="trailing" id="hRG-mC-cA5"/>
+                                    <constraint firstItem="T8p-tv-4LO" firstAttribute="top" secondItem="iNc-Tw-o0k" secondAttribute="top" id="nbW-lF-7HA"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iNc-Tw-o0k" secondAttribute="trailing" id="5yk-Oc-Acm"/>
+                            <constraint firstItem="iNc-Tw-o0k" firstAttribute="leading" secondItem="oPy-Bw-tMg" secondAttribute="leading" id="GnA-Vh-3HN"/>
+                            <constraint firstItem="iNc-Tw-o0k" firstAttribute="top" secondItem="6Rl-9R-Z5t" secondAttribute="bottom" id="bmx-Ss-0gx"/>
+                            <constraint firstItem="ss8-fL-XUE" firstAttribute="top" secondItem="iNc-Tw-o0k" secondAttribute="bottom" id="x0x-3G-Jiy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentImageView" destination="ciS-Hq-sBG" id="Fbp-K9-MfF"/>
+                        <outlet property="contentView" destination="T8p-tv-4LO" id="umJ-3p-FdI"/>
+                        <outlet property="scrollView" destination="iNc-Tw-o0k" id="L5L-7l-fcw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4f-vv-j0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1420" y="129"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CvP-t7-Q2X">
+            <objects>
+                <viewController id="r1p-I9-NyU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KuQ-dT-X4R"/>
+                        <viewControllerLayoutGuide type="bottom" id="byO-L0-2e1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="krf-xO-P75">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdc-9n-hGC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2120" y="129"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
