@@ -13,6 +13,7 @@
 		5BC0F90F1CD31FB200B7A839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC0F90D1CD31FB200B7A839 /* Main.storyboard */; };
 		5BC0F9111CD31FB200B7A839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC0F9101CD31FB200B7A839 /* Assets.xcassets */; };
 		5BC0F9141CD31FB200B7A839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC0F9121CD31FB200B7A839 /* LaunchScreen.storyboard */; };
+		EE7A0BBB90DFEE4874C975BA /* Pods_ACExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC738A8059A7B2DBC28881 /* Pods_ACExam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		5BC0F9101CD31FB200B7A839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BC0F9131CD31FB200B7A839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BC0F9151CD31FB200B7A839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E85F141F768AA8BEC798F8C /* Pods-ACExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACExam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ACExam/Pods-ACExam.debug.xcconfig"; sourceTree = "<group>"; };
+		EACC738A8059A7B2DBC28881 /* Pods_ACExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECA3991899918927E225800A /* Pods-ACExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACExam.release.xcconfig"; path = "Pods/Target Support Files/Pods-ACExam/Pods-ACExam.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE7A0BBB90DFEE4874C975BA /* Pods_ACExam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				5BC0F9061CD31FB200B7A839 /* ACExam */,
 				5BC0F9051CD31FB200B7A839 /* Products */,
+				80A4000FE0CA3766807B65D0 /* Pods */,
+				E9D603768376E1E2E6F9EE0D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = ACExam;
 			sourceTree = "<group>";
 		};
+		80A4000FE0CA3766807B65D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E85F141F768AA8BEC798F8C /* Pods-ACExam.debug.xcconfig */,
+				ECA3991899918927E225800A /* Pods-ACExam.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E9D603768376E1E2E6F9EE0D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EACC738A8059A7B2DBC28881 /* Pods_ACExam.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BC0F9181CD31FB200B7A839 /* Build configuration list for PBXNativeTarget "ACExam" */;
 			buildPhases = (
+				0C6630D28238053FE639131C /* 📦 Check Pods Manifest.lock */,
 				5BC0F9001CD31FB200B7A839 /* Sources */,
 				5BC0F9011CD31FB200B7A839 /* Frameworks */,
 				5BC0F9021CD31FB200B7A839 /* Resources */,
+				9C467D45A21E09BE2DDBD105 /* 📦 Embed Pods Frameworks */,
+				F2A41348AB97915E425238BC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C6630D28238053FE639131C /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C467D45A21E09BE2DDBD105 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ACExam/Pods-ACExam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2A41348AB97915E425238BC /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ACExam/Pods-ACExam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BC0F9001CD31FB200B7A839 /* Sources */ = {
@@ -251,6 +326,7 @@
 		};
 		5BC0F9191CD31FB200B7A839 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E85F141F768AA8BEC798F8C /* Pods-ACExam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ACExam/Info.plist;
@@ -262,6 +338,7 @@
 		};
 		5BC0F91A1CD31FB200B7A839 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECA3991899918927E225800A /* Pods-ACExam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ACExam/Info.plist;
@@ -290,6 +367,7 @@
 				5BC0F91A1CD31FB200B7A839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
